@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace AiKD_Lab3 {
     public static partial class Functions {
@@ -25,6 +26,10 @@ namespace AiKD_Lab3 {
             temp_var = val1;
             val1 = val2;
             val2 = temp_var;
+        }
+        public static string ShortNumbers(string source) {
+            string regex = "^0+(?!$)";
+            return Regex.Replace(source, regex, "");
         }
     }
 }

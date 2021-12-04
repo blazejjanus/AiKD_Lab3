@@ -113,11 +113,21 @@ namespace AiKD_Lab3 {
             return result;
         }
         public void AddCode(string character, int code) {
-            int index = Contains(character);
-            if ( index < 0) {
-                throw new Exception("Znaku "+character+" nie ma w słowniku!");
-            } else {
-                symbols[index].Code += code;
+            int index;
+            string current;
+            for(int i=0; i<character.Length; i++) {
+                current = character.ElementAt(i).ToString();
+                index = Contains(current);
+                if (index < 0) {
+                    throw new Exception("Znaku " + character + " nie ma w słowniku!");
+                } else {
+                    symbols[index].Code += code;
+                }
+            }
+        }
+        public void RemoveLeadingZeros() {
+            for(int i = 0; i<this.Size; i++) {
+                symbols[i].Code = Functions.ShortNumbers(symbols[i].Code);
             }
         }
         public List<string> Values() {
