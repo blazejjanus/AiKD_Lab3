@@ -8,3 +8,4 @@
 *.db
 /x64
 /AiKD_Lab3/AiKD_Lab3/obj
+/AiKD_Lab3/AiKD_Lab3/bin/Debug/net5.0
