@@ -47,7 +47,23 @@ namespace AiKD_Lab3 {
             dictionary.FixCodes();
         }
         //Właściwości
-
+        public int CompressedDataSize {
+            get {
+                int size = 0;
+                List<CharInfo> lst = dictionary.Symbols;
+                foreach(CharInfo var in lst) {
+                    size += var.Code.Length;
+                }
+                return size * Consts.bit_size;
+            }
+        }
+        public int SourceDataSize {
+            get {
+                int size = 0;
+                size = text.Length;
+                return size * Consts.char_size;
+            }
+        }
         //Pola
         private string text;
         private Dictionary dictionary;

@@ -10,7 +10,7 @@ namespace AiKD_Lab3 {
         DSC //Descending
     }
     public static class Consts {
-        public static int char_size = 8;
+        public static int char_size = sizeof(char)*8; //Bity
         public static int bit_size = 1;
     }
 }
