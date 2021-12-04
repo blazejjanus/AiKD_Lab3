@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AiKD_Lab3 {
     public class CharInfo {
-        public CharInfo(char symbol, int count) {
+        public CharInfo(string symbol, int count) {
             this.symbol = symbol;
             this.count = count;
             this.code = null;
@@ -24,7 +24,7 @@ namespace AiKD_Lab3 {
             return sb.ToString();
         }
         //Właściwości
-        public char Symbol {
+        public string Symbol {
             get { return symbol; }
         }
         public int Count {
@@ -36,7 +36,7 @@ namespace AiKD_Lab3 {
             set { code = value; }
         }
         //Pola
-        private char symbol;
+        private string symbol;
         private int count;
         private string code;
     }
