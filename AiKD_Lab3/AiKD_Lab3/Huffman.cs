@@ -6,15 +6,27 @@ using System.Threading.Tasks;
 
 namespace AiKD_Lab3 {
     public class Huffman {
-        Huffman(string text) {
+        public Huffman(string text) {
+            this.dictionary = new Dictionary(text);
+            this.text = text;
+            GenKey();
+        }
+        //Metody
+        public string GetDictionary() {
+            return dictionary.ToString();
+        }
+        private void GenKey() {
+            dictionary.Sort();
 
         }
+        private void CalcNode(char val1, char val2) {
 
-        //Metody
-        
+        }
         //Właściwości
 
         //Pola
         private string text;
+        private Dictionary dictionary;
+        private Key key;
     }
 }

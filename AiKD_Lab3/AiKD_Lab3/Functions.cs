@@ -20,6 +20,11 @@ namespace AiKD_Lab3 {
             }
             return result;
         }
-        
+        public static void SwapSymbols(CharInfo val1, CharInfo val2) {
+            CharInfo temp_var;
+            temp_var = val1;
+            val1 = val2;
+            val2 = temp_var;
+        }
     }
 }

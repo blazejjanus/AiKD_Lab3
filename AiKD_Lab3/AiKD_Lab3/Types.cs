@@ -9,4 +9,8 @@ namespace AiKD_Lab3 {
         ASC, //Ascending
         DSC //Descending
     }
+    public static class Consts {
+        public static int char_size = 8;
+        public static int bit_size = 1;
+    }
 }

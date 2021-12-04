@@ -7,36 +7,31 @@ using System.Threading.Tasks;
 namespace AiKD_Lab3 {
     public class Dictionary {
         private Dictionary() {
-            character = new List<char>(0);
-            count = new List<int>(0);
+            symbols = new List<CharInfo>();
         }
         public Dictionary(string text) {
-            character = new List<char>(0);
-            count = new List<int>(0);
-            //Dodawanie do list
-            for(int i = 0; i < text.Length; i++) {
-                UpdateDictionary(text.ElementAt(i));
+            CharInfo symbol;
+            symbols = new List<CharInfo>();
+            CharCount chc = new CharCount(text);
+            List<char> temp_char = chc.Chars;
+            List<int> temp_count = chc.Counts;
+            for (int i = 0; i < chc.Size; i++) {
+                symbol = new CharInfo(temp_char[i], temp_count[i]);
+                symbols.Add(symbol);
             }
         }
         //Metody
-        private void UpdateDictionary(char character) {
-            int index = 0;
-            if (this.character.Contains(character) == true) {
-                index=this.character.IndexOf(character);
-                this.count[index]++;
-            } else {
-                this.character.Add(character);
-                this.count.Add(1);
-            }
-        }
         public void Add(char character, int count) {
-            this.character.Add(character);
-            this.count.Add(count);
+            CharInfo symbol = new CharInfo(character, count);
+            this.symbols.Add(symbol);
+        }
+        public void Add(CharInfo symbol) {
+            this.symbols.Add(symbol);
         }
         private Dictionary Clone() {
             Dictionary result = new Dictionary();
-            for(int i=0; i<character.Count; i++) {
-                result.Add(this.character[i], this.count[i]);
+            for(int i=0; i<symbols.Count; i++) {
+                result.Add(this.symbols[i]);
             }
             return result;
         }
@@ -49,36 +44,22 @@ namespace AiKD_Lab3 {
             }
         }
         private void SortASC() {
-            int n = this.character.Count();
-            int temp_count;
-            char temp_character;
+            int n = this.symbols.Count();
             do {
-                for(int i=0; i<n-1; i++) {
-                    if(count[i] > count[i + 1]) {
-                        temp_character = character[i];
-                        character[i] = character[i + 1];
-                        character[i + 1] = temp_character;
-                        temp_count = count[i];
-                        count[i] = count[i + 1];
-                        count[i + 1] = temp_count;
+                for (int i = 0; i < n - 1; i++) {
+                    if (symbols[i].Count > symbols[i + 1].Count) {
+                        Functions.SwapSymbols(symbols[i], symbols[i + 1]);
                     }
                 }
                 n--;
             } while (n > 1);
         }
         private void SortDSC() {
-            int n = this.character.Count();
-            int temp_count;
-            char temp_character;
+            int n = this.symbols.Count();
             do {
                 for (int i = 0; i < n - 1; i++) {
-                    if (count[i] < count[i + 1]) {
-                        temp_character = character[i];
-                        character[i] = character[i + 1];
-                        character[i + 1] = temp_character;
-                        temp_count = count[i];
-                        count[i] = count[i + 1];
-                        count[i + 1] = temp_count;
+                    if (symbols[i].Count < symbols[i + 1].Count) {
+                        Functions.SwapSymbols(symbols[i], symbols[i + 1]);
                     }
                 }
                 n--;
@@ -102,18 +83,17 @@ namespace AiKD_Lab3 {
         }
         public override string ToString() {
             StringBuilder sb = new StringBuilder();
-            sb.Append("\tZnak:\tLiczebność:\n");
-            for(int i = 0; i < this.character.Count; i++) {
-                sb.Append("\t");
-                sb.Append(character[i]);
-                sb.Append("\t");
-                sb.Append(count[i]);
-                sb.Append("\n");
+            sb.Append("\tZnak:\tLiczebność:\tKod:\n");
+            for(int i = 0; i < this.symbols.Count; i++) {
+                sb.Append(symbols[i].ToString());
             }
             return sb.ToString();
         }
+        //Właściwości
+        public List<CharInfo> Symbols {
+            get { return this.symbols; }
+        }
         //Pola
-        List<char> character;
-        List<int> count;
+        List<CharInfo> symbols;
     }
 }
