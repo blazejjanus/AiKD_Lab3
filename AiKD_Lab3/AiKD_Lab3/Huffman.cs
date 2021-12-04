@@ -44,7 +44,7 @@ namespace AiKD_Lab3 {
                 temp.Remove(current.Symbol);
                 temp.Remove(next.Symbol);
             } while (temp.Size > 1);
-            dictionary.RemoveLeadingZeros();
+            dictionary.FixCodes();
         }
         //Właściwości
 

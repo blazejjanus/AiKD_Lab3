@@ -31,5 +31,12 @@ namespace AiKD_Lab3 {
             string regex = "^0+(?!$)";
             return Regex.Replace(source, regex, "");
         }
+        public static string RotateString(string source) {
+            string result = null;
+            for(int i = source.Length-1; i >= 0; i--) {
+                result += source[i];
+            }
+            return result;
+        }
     }
 }

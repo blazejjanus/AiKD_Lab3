@@ -125,9 +125,10 @@ namespace AiKD_Lab3 {
                 }
             }
         }
-        public void RemoveLeadingZeros() {
-            for(int i = 0; i<this.Size; i++) {
-                symbols[i].Code = Functions.ShortNumbers(symbols[i].Code);
+        public void FixCodes() {
+            for (int i = 0; i < this.Size; i++) {
+                symbols[i].Code = Functions.RotateString(symbols[i].Code);
+                //symbols[i].Code = Functions.ShortNumbers(symbols[i].Code);
             }
         }
         public List<string> Values() {
