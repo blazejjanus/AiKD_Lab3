@@ -1,0 +1,10 @@
+/bin
+/obj
+/.vs
+*.exe
+*.cache
+*.pdb
+*.suo
+*.db
+/x64
+/AiKD_Lab3/AiKD_Lab3/obj
