@@ -64,6 +64,12 @@ namespace AiKD_Lab3 {
                 return size * Consts.char_size;
             }
         }
+        public int BitRatio {
+            get {
+                int br = CompressedDataSize;
+                return br/dictionary.Size;
+            }
+        }
         //Pola
         private string text;
         private Dictionary dictionary;

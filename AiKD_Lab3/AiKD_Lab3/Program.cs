@@ -30,6 +30,7 @@ namespace AiKD_Lab3 {
             Console.WriteLine("Rozmiar przed skompresowaniem: " + uncompressed_size);
             Console.WriteLine("Rozmiar po skompresowaniu: " + compressed_size);
             double comp_ratio = uncompressed_size / compressed_size;
+            Console.WriteLine("Średnia liczba bitów na skompresowanej reprezentacji danych na znak: "+huffman.BitRatio);
             Console.WriteLine("Współczynnik kompresji: " + comp_ratio);
             Console.WriteLine("% współczynnik kompresji: " + (1.0 - (1/comp_ratio))*100 + "%");
         }
