@@ -5,7 +5,7 @@ namespace AiKD_Lab3 {
     class Program {
         public static class Options {
             public static bool use_file = true;
-            public static bool known_example_data = true;
+            public static bool known_example_data = false;
             public static bool use_static_example = false;
             public static bool use_static_file = true;
         }
@@ -24,7 +24,7 @@ namespace AiKD_Lab3 {
                 }
             } else {
                 if (Options.use_static_file == true) {
-                    filename = "";
+                    filename = "C:\\tmp\\lab3\\test.txt";
                 } else {
                     filename = Functions.Input.FilePath("nazwę pliku:");
                 }
@@ -39,14 +39,16 @@ namespace AiKD_Lab3 {
             Console.WriteLine();
             Console.WriteLine("Tekst zakodowany:");
             Functions.DisplayFormat.Info(huffman.Encode());
+            Console.WriteLine();
             int uncompressed_size = huffman.SourceDataSize;
             int compressed_size = huffman.CompressedDataSize;
-            Console.WriteLine("Rozmiar przed skompresowaniem:\t\t\t\t\t\t" + uncompressed_size+"bit");
-            Console.WriteLine("Rozmiar po skompresowaniu:\t\t\t\t\t\t" + compressed_size+"bit");
+            Console.WriteLine("Rozmiar przed skompresowaniem:\t\t\t\t\t\t" + uncompressed_size+" bit");
+            Console.WriteLine("Rozmiar po skompresowaniu:\t\t\t\t\t\t" + compressed_size+" bit");
             double comp_ratio = uncompressed_size / compressed_size;
             Console.WriteLine("Średnia liczba bitów na skompresowanej reprezentacji danych na znak:\t"+huffman.BitRatio);
             Console.WriteLine("Współczynnik kompresji:\t\t\t\t\t\t\t" + comp_ratio);
             Console.WriteLine("% współczynnik kompresji:\t\t\t\t\t\t" + Math.Round((1.0 - (1/comp_ratio))*100, 2) + "%");
+            Console.WriteLine("Rozmair słownika:\t\t\t\t\t\t\t" + huffman.DictionarySize+" bit");
         }
         public static string GenData() {
             string str = null;

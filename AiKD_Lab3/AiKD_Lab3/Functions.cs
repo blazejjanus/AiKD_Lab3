@@ -44,6 +44,9 @@ namespace AiKD_Lab3 {
             if (ext == "dat") {
                 return true;
             }
+            if (ext == "iso") {
+                return true;
+            }
             return false;
         }
         private static string GetExtension(string filename) {

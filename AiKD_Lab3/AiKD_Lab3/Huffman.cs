@@ -82,6 +82,17 @@ namespace AiKD_Lab3 {
                 return br/dictionary.Size;
             }
         }
+        public int DictionarySize {
+            get {
+                int ds = 0;
+                List<CharInfo> lst = dictionary.Symbols;
+                foreach (CharInfo var in lst) {
+                    ds += (var.Symbol.Length * Consts.char_size);
+                    ds += (var.Code.Length * Consts.bit_size);
+                }
+                return ds;
+            }
+        }
         //Pola
         private string text;
         private Dictionary dictionary;
