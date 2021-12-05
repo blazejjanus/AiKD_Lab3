@@ -141,6 +141,14 @@ namespace AiKD_Lab3 {
         public CharInfo Symbol(int i) {
             return symbols[i];
         }
+        public string EncodeChar(string character) {
+            foreach (CharInfo val in symbols) {
+                if (character.Equals(val.Symbol)) {
+                    return val.Code;
+                }
+            }
+            return null;
+        }
         //Właściwości
         public List<CharInfo> Symbols {
             get { return this.symbols; }

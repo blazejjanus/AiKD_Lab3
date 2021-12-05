@@ -46,6 +46,18 @@ namespace AiKD_Lab3 {
             } while (temp.Size > 1);
             dictionary.FixCodes();
         }
+        public string Encode() {
+            string result = null;
+            for(int i=0; i<text.Length; i++) {
+                string response = dictionary.EncodeChar(text.ElementAt(i).ToString());
+                if (response!=null){
+                    result += response;
+                } else {
+                    throw new Exception("Podanej wartości " + text.ElementAt(i) + " nie ma w słowniku!");
+                }
+            }
+            return result;
+        }
         //Właściwości
         public int CompressedDataSize {
             get {

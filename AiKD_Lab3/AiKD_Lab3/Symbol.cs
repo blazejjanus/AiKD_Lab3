@@ -19,6 +19,7 @@ namespace AiKD_Lab3 {
             sb.Append("\t");
             sb.Append(count);
             sb.Append("\t");
+            sb.Append("\t");
             sb.Append(code);
             sb.Append("\n");
             return sb.ToString();
